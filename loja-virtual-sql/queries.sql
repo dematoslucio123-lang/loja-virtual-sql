@@ -26,6 +26,19 @@ ORDER BY total_pedidos DESC;
 
 
 
+-- 5. Valor total por pedido (com JOIN)
+SELECT
+    p.id AS pedido_id,
+    c.nome AS cliente,
+    pr.nome AS produto,
+    p.quantidade,
+    (pr.preco * p.quantidade) AS valor_total
+FROM pedidos p
+JOIN clientes c  ON c.id = p.cliente_id
+JOIN produtos pr ON pr.id = p.produto_id;
+
+
+
 
 
 
